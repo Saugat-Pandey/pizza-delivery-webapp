@@ -1,0 +1,604 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 0.8rem 0;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;   
+  gap: 2rem;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand p {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.main-nav a {
+  position: relative;
+  padding: 0.4rem 0.6rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #d62828;
+  text-decoration: none;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #d62828;
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.order-layout .card {
+  flex: 1;
+}
+
+.menu,
+.cart {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pizza-card,
+.pizza_card {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+}
+
+.pizza-card:last-child {
+  border-bottom: none;
+}
+
+.pizza-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.menu p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.menu p:last-child {
+  font-weight: bold;
+}
+
+.card {
+  flex: 1;              
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart input,
+.cart select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.cart-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  background: #d62828;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#order-btn {
+  background-color: #2ecc71;     
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#order-btn:hover:not(:disabled) {
+  background-color: #27ae60;
+  transform: translateY(-1px);
+}
+
+#order-btn:disabled {
+  background-color: #cfe9da;
+  color: #ffffff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+button:hover {
+  background: #b71c1c;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#total-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.menu-grid {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.auto-submit {
+  cursor: pointer;
+}
+
+.baker-page {
+  position: relative;
+  text-align: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.baker-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), rgba(255,255,255,0.7) 40%, rgba(240,240,240,0.7) 65%),
+    linear-gradient(180deg, rgba(230,230,230,0.6), rgba(245,245,245,0.9));
+  z-index: -1;
+}
+
+.baker-page h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.baker-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.baker-order {
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.baker-order__title {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.baker-order__pizzas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.baker-card {
+  background: rgba(255,255,255,0.55);
+  border-radius: 14px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.baker-card__pizza {
+  margin: 0 0 1rem;
+}
+
+.baker-card__pizza img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0.5rem auto;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.baker-card__pizza figcaption {
+  font-family: "Georgia", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.baker-card__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.baker-card__actions select.auto-submit {
+  appearance: none;
+  background: #2f3136;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.customer-page {
+  max-width: 1100px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.customer-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+#order-status {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  margin: 0.5rem 0 1.5rem;
+  border: 1px solid #eee;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.status-card {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+.status-card__image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 0.6rem;
+}
+
+.status-card__name {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.status-pill {
+  background: #2f3136;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.customer-page form {
+  margin-top: 0.5rem;
+}
+
+.customer-page form button {
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(214, 40, 40, 0.25);
+}
+
+.driver-page {
+  position: relative;
+  text-align: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.driver-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), rgba(255,255,255,0.7) 40%, rgba(240,240,240,0.7) 65%),
+    linear-gradient(180deg, rgba(230,230,230,0.6), rgba(245,245,245,0.9));
+  z-index: -1;
+}
+
+.driver-page h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#driver-form {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.driver-order {
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.driver-order__title {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.driver-order__pizzas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+  justify-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.driver-order__pizza {
+  margin: 0;
+}
+
+.driver-order__pizza img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.driver-order__pizza figcaption {
+  font-family: "Georgia", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.driver-order__address,
+.driver-order__total {
+  font-family: "Georgia", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.driver-order__actions {
+  margin-top: 1.2rem;
+  display: inline-flex;
+  gap: 0.75rem;
+  background: #2f3136;
+  padding: 0.5rem 0.6rem;
+  border-radius: 12px;
+}
+
+.driver-toggle {
+  cursor: pointer;
+}
+
+.driver-toggle input {
+  display: none;
+}
+
+.driver-toggle span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.driver-toggle input:checked + span {
+  background: #1f2024;
+  transform: translateY(-1px);
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .pizza-card {
+    width: calc(50% - 1rem);
+  }
+
+  .baker-order__pizzas {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .driver-order__pizzas {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .baker-page,
+  .driver-page,
+  .customer-page {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .baker-order,
+  .driver-order,
+  #order-status {
+    padding: 1rem;
+  }
+
+  .pizza-card,
+  .pizza-image {
+    width: 100%;
+    max-width: 220px;
+  }
+  .baker-card__pizza img,
+  .driver-order__pizza img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  .pizza-card {
+    width: 100%;
+  }
+
+  .baker-order__pizzas,
+  .driver-order__pizzas,
+  #order-status {
+    grid-template-columns: 1fr;
+  }
+
+  .driver-order__actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
