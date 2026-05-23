@@ -1,9 +1,11 @@
 <?php
-require_once "App/Core/DebugHelper.php";
-require_once "App/Controller/DriverController.php";
+declare(strict_types=1);
+
+require_once 'App/Core/DebugHelper.php';
+require_once 'App/Controller/IndexController.php';
 
 try {
-    $controller = new DriverController();
+    $controller = new IndexController();
     $controller->handleRequest();
 } catch (Exception $e) {
     header("Content-type: text/html; charset=UTF-8");
