@@ -20,7 +20,7 @@ A full-stack pizza delivery web app built with PHP and MariaDB, containerized wi
 
 ```
 src/
-└── Prak/
+└── Praktikum/
     ├── index.php          # Customer order page
     ├── baker.php          # Kitchen staff view
     ├── customer.php       # Customer status view
